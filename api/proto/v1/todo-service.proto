@@ -5,20 +5,23 @@ option go_package = "../v1";
 
 import "google/protobuf/timestamp.proto";
 
-// Tasks we have to do
+// Taks we have to do
 message ToDo {
-  // Unique integer identifier for the todo task
+  // Unique integer identifier of the todo task
   int64 id = 1;
+
   // Title of the task
   string title = 2;
-  // Detailed description of the todo task
-  string detail = 3;
+
+  // Detail description of the todo task
+  string description = 3;
+
   // Date and time to remind the todo task
   google.protobuf.Timestamp reminder = 4;
 }
 
-// Request data to create a new todo task
-message CreateRequest {
+// Request data to create new todo task
+message CreateRequest{
   // API versioning: it is my best practice to specify version explicitly
   string api = 1;
 
@@ -26,7 +29,7 @@ message CreateRequest {
   ToDo toDo = 2;
 }
 
-// Response that contains data for created todo task
+// Contains data of created todo task
 message CreateResponse{
   // API versioning: it is my best practice to specify version explicitly
   string api = 1;
@@ -109,7 +112,7 @@ message ReadAllResponse{
 // Service to manage list of todo tasks
 service ToDoService {
   // Create new todo task
-  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
 
   // Read todo task
   rpc Read(ReadRequest) returns (ReadResponse);
