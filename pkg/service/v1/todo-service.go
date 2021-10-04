@@ -21,6 +21,7 @@ const (
 // toDoServiceServer is implementation of v1.ToDoServiceServer proto interface
 type toDoServiceServer struct {
 	db *sql.DB
+	v1.UnimplementedToDoServiceServer
 }
 
 // NewToDoServiceServer creates ToDo service
